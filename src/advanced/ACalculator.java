@@ -1,16 +1,16 @@
 package advanced;
 
 public abstract class ACalculator {
-    ACalculator state;
+    protected Object state; // Folosim Object, conform cerintei
 
-
-    public ACalculator Result(){
+    public Object result() {
         return state;
     }
 
-    public ACalculator Clear(){
-        return null;
+    public void clear() {
+        init(); // Clear reseteaza starea, deci apelam init()
     }
 
-    public abstract int init();
+    // init() este abstracta si va fi implementata de subclase pentru a seta 0 sau 0.0
+    public abstract void init();
 }

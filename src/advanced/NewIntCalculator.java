@@ -1,20 +1,28 @@
 package advanced;
 
-public abstract class NewIntCalculator extends ACalculator {
-Integer state;
-    public NewIntCalculator Add(int nr){
-        this.state= this.state+nr;
+public class NewIntCalculator extends ACalculator {
+
+    public NewIntCalculator() {
+        init(); // Initializam starea cand cream obiectul
+    }
+
+    @Override
+    public void init() {
+        this.state = 0; // Autoboxing in Integer
+    }
+
+    public NewIntCalculator add(int nr) {
+        this.state = (Integer) this.state + nr;
+        return this; // Returnam instanta curenta pentru a putea inlantui metodele
+    }
+
+    public NewIntCalculator subtract(int nr) {
+        this.state = (Integer) this.state - nr;
         return this;
     }
 
-    public NewIntCalculator Substract(int nr){
-        this.state= this.state-nr;
-        return this;
-    }
-
-
-    public NewIntCalculator Multiply(int nr){
-        this.state= this.state*nr;
+    public NewIntCalculator multiply(int nr) {
+        this.state = (Integer) this.state * nr;
         return this;
     }
 }
